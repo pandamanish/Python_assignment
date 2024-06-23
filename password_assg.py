@@ -1,16 +1,13 @@
 import string
-password=input(str("input password\n"))
-
-#print(password)
 
 def check_password_strength(password):
     upper_check=False
     lower_check=False
     digit_check=False
     special_char_check=False
-    flag=0
-    if len(password)<=8:
-        print("the length is too short")
+    check_unsolved=[]
+    if len(password)<8:
+        check_unsolved.append("*Length is too short(Minimum 8 Characters)\n")
         
     
     for  i in password:
@@ -22,28 +19,28 @@ def check_password_strength(password):
             digit_check=True 
         if not i.isalnum():
             special_char_check=True
-        
-    if not upper_check :
-        print("Upper case not provided")
-        return
-    if not lower_check:
-        print("Lower case not provided")
-        
-        return
-    if not digit_check:
-        print ("Numeric value not provided")
-      
-        return
-    if not special_char_check:
-        print("Special character is not provided")
-        
-        return
-   
-    print("Password is strong")
-    return True
     
+    if not upper_check :
+        check_unsolved.append("*Password must include atleast 1 Upper case\n")
+        
+    if not lower_check:
+        check_unsolved.append("*Password must include atleast 1 Lower case\n")
+        
+    if not digit_check:
+        check_unsolved.append("*Password must include atleast 1 Numeric value\n")
+        
+    if not special_char_check:
+        check_unsolved.append("*Password must include atleast 1 Special character\n")
+    if check_unsolved:
+        print("Password is not Strong!! Please find the following changes:\n")
+        for check in check_unsolved:
+            print(check)
+            return False
+    return True
 
+   
+password=input(str("input password\n"))
 
-
-if not check_password_strength(password):
-    print("Password is not Strong")
+if  check_password_strength(password):
+    print("Password is Strong!!")
+ 
