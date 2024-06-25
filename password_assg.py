@@ -20,22 +20,22 @@ def check_password_strength(password):
         if not i.isalnum():
             special_char_check=True
     
-    if not upper_check :
+    if  not upper_check :
         check_unsolved.append("*Password must include atleast 1 Upper case\n")
         
-    if not lower_check:
+    if  not lower_check:
         check_unsolved.append("*Password must include atleast 1 Lower case\n")
         
-    if not digit_check:
+    if  not digit_check:
         check_unsolved.append("*Password must include atleast 1 Numeric value\n")
         
-    if not special_char_check:
+    if  not special_char_check:
         check_unsolved.append("*Password must include atleast 1 Special character\n")
     if check_unsolved:
         print("Password is not Strong!! Please find the following changes:\n")
         for check in check_unsolved:
             print(check)
-            return False
+        return False
     return True
 
    
