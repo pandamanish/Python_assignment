@@ -1,7 +1,7 @@
 #Importing the Psutil package
 import psutil
 
-#Setting the CPU threshold value
+#Specifying the CPU threshold value
 cpu_threshold=80.0
 
 def compute_cpu():
@@ -15,11 +15,11 @@ def compute_cpu():
             #Checking if the CPU usage is > then the threshold value
             if cpu_compute>cpu_threshold:
                 print(f"Alert! CPU usage exceeds threshold: {cpu_compute}%")
-
+    #if user click on ctrl+c then session will be interrupted
     except KeyboardInterrupt:
         print("Interrupted by User")
         
-        #Feedback from the user:
+        #Here we will take feedback from the user if he/she wants to start again or not:
         emergency_exit=input("Do you want to start the process again or not(Y/N): ")
         if emergency_exit =='Y':
             compute_cpu()

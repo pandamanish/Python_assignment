@@ -19,7 +19,7 @@ def file_check(src_dir,target_dir):
             target_file=os.path.join(target_dir,file_name)
 
             
-        #Checking if filename exist then append with timestamp else copy
+        #Checking if filename exist then append with timestamp
         if os.path.exists(target_file):
             filename,extension=os.path.splitext(file_name)
             timestr=datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -27,6 +27,8 @@ def file_check(src_dir,target_dir):
             new_target_dir=os.path.join(target_dir,new_filename)
             shutil.copy(target_file,new_target_dir)
             print(f"File already exists.Copied as {new_filename}")
+        
+        # else the copy of the file directly from the src to target
         else:
             shutil.copy(src_dir,target_dir)
             print( f"File copied to {target_dir}")
